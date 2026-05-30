@@ -50,67 +50,67 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /* =========================
-     HERO LIQUID BLOB
+     HERO LIQUID BLOBS
   ========================== */
 
-  const wrapper = document.getElementById("nameWrapper");
+  (function () {
+    const CFG = {
+      color1: '#8b1a2e',   // deep burgundy
+      color2: '#c0392b',   // rich red
+      count:  6,
+      speed:  1.1,
+      size:   1.4,         // bigger blobs
+      opacity: 0.55,
+    };
 
-  if (!wrapper) return;
+    const wrap = document.getElementById('blobs');
+    if (!wrap) return;
 
-  let bubble = document.createElement("div");
-  bubble.className = "bubble";
-  wrapper.appendChild(bubble);
+    // Size blobs relative to the hero section, not the full window
+    const hero = document.querySelector('.hero');
+    const W = () => hero.offsetWidth;
+    const H = () => hero.offsetHeight;
 
-  let size = 140;
-  let mouseActive = false;
+    // Inject keyframes once
+    const s = document.createElement('style');
+    s.textContent = `
+      @keyframes lava-move {
+        0%,100% { transform: translate(0,0) scale(1); }
+        33%      { transform: translate(var(--tx), var(--ty)) scale(1.12); }
+        66%      { transform: translate(var(--tx2),var(--ty2)) scale(0.9); }
+      }
+    `;
+    document.head.appendChild(s);
 
-  // initial position (centered)
-  let x = wrapper.offsetWidth / 2 - size / 2;
-  let y = wrapper.offsetHeight / 2 - size / 2;
+    function makeBlob() {
+      const el = document.createElement('div');
+      const r   = (Math.random() * 0.12 + 0.06) * Math.min(W(), H()) * CFG.size;
+      const dur = (Math.random() * 8 + 12) / CFG.speed;
 
-  bubble.style.width = size + "px";
-  bubble.style.height = size + "px";
-  bubble.style.left = x + "px";
-  bubble.style.top = y + "px";
+      Object.assign(el.style, {
+        position:    'absolute',
+        width:       r * 2 + 'px',
+        height:      r * 2 + 'px',
+        borderRadius:'50%',
+        opacity:     CFG.opacity,
+        background:  `radial-gradient(circle at 35% 35%, ${CFG.color1}, ${CFG.color2})`,
+        left:        Math.random() * (W() - r * 2) + 'px',
+        top:         Math.random() * (H() - r * 2) + 'px',
+        animation:   `lava-move ${dur}s ease-in-out infinite`,
+        animationDelay: (Math.random() * -dur) + 's',
+      });
 
-  // idle floating motion (JS-driven for randomness)
-  let vx = Math.random() * 1.5 + 0.5;
-  let vy = Math.random() * 1.5 + 0.5;
+      el.style.setProperty('--tx',  ((Math.random() - 0.5) * W() * 0.6) + 'px');
+      el.style.setProperty('--ty',  ((Math.random() - 0.5) * H() * 0.6) + 'px');
+      el.style.setProperty('--tx2', ((Math.random() - 0.5) * W() * 0.5) + 'px');
+      el.style.setProperty('--ty2', ((Math.random() - 0.5) * H() * 0.5) + 'px');
 
-  function idleFloat() {
-    if (!mouseActive) {
-      x += vx;
-      y += vy;
-
-      if (x < 0 || x > wrapper.offsetWidth - size) vx *= -1;
-      if (y < 0 || y > wrapper.offsetHeight - size) vy *= -1;
-
-      bubble.style.left = x + "px";
-      bubble.style.top = y + "px";
+      return el;
     }
 
-    requestAnimationFrame(idleFloat);
-  }
-
-  idleFloat();
-
-  // activate mouse follow ONLY after movement
-  wrapper.addEventListener("mousemove", (e) => {
-    mouseActive = true;
-
-    const rect = wrapper.getBoundingClientRect();
-    x = e.clientX - rect.left - size / 2;
-    y = e.clientY - rect.top - size / 2;
-
-    bubble.style.left = x + "px";
-    bubble.style.top = y + "px";
-  });
-
-  // click = blob grows (surface tension vibe)
-  wrapper.addEventListener("click", () => {
-    size += 18;
-    bubble.style.width = size + "px";
-    bubble.style.height = size + "px";
-  });
+    for (let i = 0; i < CFG.count; i++) {
+      wrap.appendChild(makeBlob());
+    }
+  })();
 
 });

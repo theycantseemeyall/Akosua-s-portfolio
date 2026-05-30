@@ -18,7 +18,17 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-   background: #000;
+  background: #000;
+  position: relative;   /* blobs are positioned relative to this */
+  overflow: hidden;     /* clips blobs to hero bounds */
+}
+
+/* Blobs host — lives inside .hero, covers it fully */
+#lava-host {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
 }
 
 .label {
@@ -30,75 +40,26 @@ body {
 .name {
   font-size: 220px;
   font-weight: 900;
-  color: #6b1f32;
+  color: rgb(95, 4, 19);
   pointer-events: none;
+  user-select: none;          /* not selectable */
+  -webkit-user-select: none;
 }
+
 .name-wrapper {
-  position: relative;
+  position: relative;   /* sits above the blobs */
+  z-index: 1;
   display: inline-block;
   cursor: pointer;
 }
 
 
-/* Bubble */
-.bubble {
-  position: absolute;
-  width: 140px;
-  height: 140px;
 
-  border-radius: 58% 42% 63% 37% / 48% 55% 45% 52%;
-
-  background:
-    radial-gradient(
-      circle at 30% 30%,
-      rgba(255,255,255,0.75),
-      rgba(255,255,255,0.25) 40%,
-      rgba(255,255,255,0.1) 65%,
-      rgba(255,255,255,0.03)
-    );
-
-  backdrop-filter: blur(1.5px);
-  -webkit-backdrop-filter: blur(1.5px);
-
-  box-shadow:
-    inset -12px -12px 20px rgba(255,255,255,0.35),
-    inset 10px 10px 25px rgba(255,255,255,0.08),
-    0 30px 60px rgba(255,255,255,0.15);
-
-  pointer-events: none;
-
-  animation:
-    blobMorph 6s ease-in-out infinite,
-    floatIdle 5s ease-in-out infinite;
-
-  transition:
-    transform 0.25s ease-out,
-    left 0.2s ease-out,
-    top 0.2s ease-out;
-}
-@keyframes blobMorph {
-  0% {
-    border-radius: 58% 42% 63% 37% / 48% 55% 45% 52%;
-  }
-  50% {
-    border-radius: 42% 58% 37% 63% / 55% 45% 60% 40%;
-  }
-  100% {
-    border-radius: 58% 42% 63% 37% / 48% 55% 45% 52%;
-  }
-}
-@keyframes floatIdle {
-  0%   { transform: translate(0, 0) scale(1); }
-  25%  { transform: translate(20px, -30px) scale(1.03); }
-  50%  { transform: translate(-15px, -10px) scale(0.98); }
-  75%  { transform: translate(25px, 20px) scale(1.02); }
-  100% { transform: translate(0, 0) scale(1); }
-}
 /* FILES / PROJECTS SECTION */
 .scroll-section {
   position: relative;
-  height: 400vh; /* enough to scroll all cards */
-  background: #0b0b0b;
+  height: 400vh;
+  background: #000000;
 }
 
 .sticky-container {
@@ -108,7 +69,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center; /* center everything vertically */
+  justify-content: center;
 }
 
 .files-title {
@@ -128,8 +89,8 @@ body {
 
 .card {
   position: absolute;
-  top: 50%;  /* center vertically */
-  left: 50%; /* center horizontally */
+  top: 50%;
+  left: 50%;
   transform: translate(-50%, -50%) scale(0.9);
   width: 420px;
   height: 560px;
@@ -145,11 +106,10 @@ body {
   z-index: 1;
 }
 
-/* COLORS FOR PROJECTS */
-.stack .card:nth-child(1) { background: #111; }
-.stack .card:nth-child(2) { background: #1a1a1a; }
-.stack .card:nth-child(3) { background: #222; }
-.stack .card:nth-child(4) { background: #2a2a2a; }
+.stack .card:nth-child(1) { background: #c8c8c8; }
+.stack .card:nth-child(2) { background: #c8c8c8; }
+.stack .card:nth-child(3) { background: #c8c8c8; }
+.stack .card:nth-child(4) { background: #c8c8c8; }
 
 .card-img {
   width: 80%;
@@ -171,6 +131,37 @@ body {
   color: #333;
   text-align: center;
 }
+
+/* From Uiverse.io by barisdogansutcu */
+button {
+  padding: 10px 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  border: 0;
+  background-color: white;
+  box-shadow: rgb(0 0 0 / 5%) 0 0 8px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-size: 15px;
+  transition: all 0.5s ease;
+}
+
+button:hover {
+  letter-spacing: 3px;
+  background-color: hsl(0, 90%, 28%);
+  color: hsl(0, 0%, 100%);
+  box-shadow: rgb(95, 4, 19) 0px 7px 29px 0px;
+}
+
+button:active {
+  letter-spacing: 3px;
+  background-color: hsl(0, 90%, 28%);
+  color: hsl(0, 0%, 100%);
+  box-shadow: rgb(95, 4, 19) 0px 0px 0px 0px;
+  transform: translateY(10px);
+  transition: 100ms;
+}
+
 
 /* NEXT SECTION */
 .after-files {
