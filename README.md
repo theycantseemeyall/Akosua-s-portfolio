@@ -3,11 +3,12 @@ This project was made by html,css,js,me and Claude AI which helepd with some com
 I designed this portfolio using figma as I wanted to be able to collect my thoughts in one place and visualise my website. I took inspiration from scrapbooking and "nerd out" room as some places looked modern compared to other places which had vibrant posters and manga etc. That lead me to want to create a mixed media project and also cause I was bored.
 
 Initial prototype on figma 
+
 <img width="110" height="335" alt="image" src="https://github.com/user-attachments/assets/f3ec09e7-4187-4f01-b51c-d3622fcd1cb5" />
 
 This website is divided into sections:
   Section 1 - Hero 
-  - Lava Lamp inspired (Cause their so cool)
+  - Lava Lamp inspired (Cause they're so cool)
 <img width="938" height="411" alt="image" src="https://github.com/user-attachments/assets/f50cd923-0d95-4c56-a50e-8ed956566b6d" />
 
   Section 2 - Files / projects 
