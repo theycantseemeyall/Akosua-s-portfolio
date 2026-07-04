@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Full Timeline — Akosua</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Inter, system-ui, sans-serif;
+      background: #000;
+      color: white;
+      min-height: 100vh;
+    }
+
+    .timeline-page-header {
+      text-align: center;
+      padding: 100px 24px 60px;
+    }
+
+    .timeline-page-header h1 {
+      font-size: clamp(36px, 6vw, 64px);
+      font-weight: 900;
+      margin-bottom: 16px;
+      color: white;
+    }
+
+    .timeline-page-header p {
+      color: rgba(255,255,255,0.6);
+      font-size: 16px;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-bottom: 30px;
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      font-size: 14px;
+      letter-spacing: 0.5px;
+      transition: color 0.3s ease;
+    }
+
+    .back-link:hover {
+      color: white;
+    }
+
+    .full-timeline {
+      position: relative;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 60px 24px 140px;
+    }
+
+    .full-timeline-line {
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      transform: translateX(-50%);
+      background: rgba(95, 4, 19, 0.4);
+    }
+
+    .full-timeline-item {
+      position: relative;
+      display: flex;
+      justify-content: flex-start;
+      padding: 60px 0;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .full-timeline-item.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .full-timeline-item:nth-child(even) {
+      justify-content: flex-end;
+    }
+
+    .full-timeline-year {
+      position: absolute;
+      top: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: clamp(70px, 9vw, 140px);
+      font-weight: 900;
+      letter-spacing: -4px;
+      color: rgba(95, 4, 19, 0.3);
+      pointer-events: none;
+      user-select: none;
+      z-index: 0;
+      line-height: 1;
+    }
+
+    .full-timeline-card {
+      position: relative;
+      z-index: 2;
+      width: 42%;
+      display: flex;
+      flex-direction: column;
+      background: rgba(255,255,255,0.045);
+      backdrop-filter: blur(10px) saturate(120%);
+      -webkit-backdrop-filter: blur(10px) saturate(120%);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 30px;
+      padding: 28px;
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.08),
+        0 6px 24px rgba(0,0,0,0.3);
+      transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+    }
+
+    .full-timeline-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(255,255,255,0.2);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.12),
+        0 10px 30px rgba(0,0,0,0.4);
+    }
+
+    .full-timeline-card img {
+      width: 100%;
+      border-radius: 16px;
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .full-timeline-card h3 {
+      font-size: 22px;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    .full-timeline-card p {
+      font-size: 15px;
+      line-height: 1.6;
+      color: rgba(255,255,255,0.75);
+    }
+
+    .timeline-page-footer {
+      display: flex;
+      justify-content: center;
+      padding: 40px 0 100px;
+    }
+
+    .view-timeline-btn {
+      display: inline-block;
+      padding: 16px 40px;
+      background: rgb(95, 4, 19);
+      color: white;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 15px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      border-radius: 999px;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 24px rgba(95, 4, 19, 0.35);
+    }
+
+    .view-timeline-btn:hover {
+      background: rgb(125, 8, 26);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(95, 4, 19, 0.5);
+    }
+
+    @media (max-width: 800px) {
+      .full-timeline-line {
+        left: 24px;
+      }
+
+      .full-timeline-item,
+      .full-timeline-item:nth-child(even) {
+        justify-content: flex-start;
+        padding-left: 50px;
+      }
+
+      .full-timeline-card {
+        width: 100%;
+      }
+
+      .full-timeline-year {
+        left: 24px;
+        transform: none;
+        font-size: clamp(40px, 14vw, 70px);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="timeline-page-header">
+    <a href="index.html" class="back-link">← Back to Portfolio</a>
+    <h1>The Full Timeline</h1>
+    <p>A closer look at every step of the journey so far.</p>
+  </header>
+
+  <div class="full-timeline">
+    <div class="full-timeline-line"></div>
+
+    <div class="full-timeline-item">
+      <div class="full-timeline-year">2026</div>
+      <div class="full-timeline-card">
+        <img src="Personal Portfolio.png" alt="Portfolio Completed">
+        <h3>Portfolio Completed</h3>
+        <p>Brought this whole personal portfolio together — from the liquid hero blobs to the loot box experience section and everything in between.</p>
+      </div>
+    </div>
+
+    <div class="full-timeline-item">
+      <div class="full-timeline-year">2025</div>
+      <div class="full-timeline-card">
+        <img src="https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png" alt="Placeholder">
+        <h3>Expanding the Toolkit</h3>
+        <p>Spent this year deepening my skills across design and development, picking up new tools along the way.</p>
+      </div>
+    </div>
+
+    <div class="full-timeline-item">
+      <div class="full-timeline-year">2024</div>
+      <div class="full-timeline-card">
+        <img src="images/portfolio.jpg" alt="First Portfolio">
+        <h3>First Portfolio</h3>
+        <p>Built and shipped my first personal website — a big step in figuring out my own creative and technical voice.</p>
+      </div>
+    </div>
+
+    <div class="full-timeline-item">
+      <div class="full-timeline-year">2023</div>
+      <div class="full-timeline-card">
+        <img src="https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png" alt="Placeholder">
+        <h3>Finding My Direction</h3>
+        <p>Explored different creative disciplines and started narrowing in on what I actually wanted to build.</p>
+      </div>
+    </div>
+
+    <div class="full-timeline-item">
+      <div class="full-timeline-year">2022</div>
+      <div class="full-timeline-card">
+        <img src="https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png" alt="Started Coding">
+        <h3>Started Coding</h3>
+        <p>Wrote my very first HTML page — the starting point for everything that followed.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <footer class="timeline-page-footer">
+    <a href="index.html" class="view-timeline-btn">Back to Portfolio</a>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const items = document.querySelectorAll(".full-timeline-item");
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) entry.target.classList.add("active");
+          });
+        },
+        { threshold: 0.25 }
+      );
+
+      items.forEach((item) => observer.observe(item));
+    });
+  </script>
+
+</body>
+</html>

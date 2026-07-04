@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Akosua — Portfolio</title>
   <link rel="stylesheet" href="style.css" />
+  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
 </head>
 <body>
 
@@ -40,42 +41,194 @@
       <h1 class="files-title">The Files</h1>
       <div class="stack">
         <div class="card">
-          <img src="project1.jpg" alt="Project 1" class="card-img">
-          <h2 class="card-title">Project 1</h2>
-          <p class="card-desc">Description for Project 1.</p>
-          <button>Button</button>
+          <img src="Personal Portfolio.png" alt="Project 1" class="card-img">
+           <div class="button-row">
+              <a href="blog1.html" class="btn">Project Blog</a>
+          </div>
+          <h2 class="card-title">Personal Portfolio</h2>
+          <p class="card-desc">The journey which was the process of making this</p>
         </div>
 
         <div class="card">
-          <img src="project2.jpg" alt="Project 2" class="card-img">
-          <h2 class="card-title">Project 2</h2>
-          <p class="card-desc">Description for Project 2.</p>
-          <button>Button</button>
+          <img src="3drotation8transparent1.gif" alt="Project 2" class="card-img">
+          <div class="button-row">
+              <a href="blog2.html" class="btn">Project Blog</a>
+          </div>
+          <h2 class="card-title">Project Revital</h2>
+          <p class="card-desc">A submission for a competition that I truly like.</p>
         </div>
 
-        <div class="card">
-          <img src="project3.jpg" alt="Project 3" class="card-img">
+        <!-- <div class="card">
+          <img src="https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png" alt="Project 3" class="card-img">
+          <div class="button-row">
+              <a href="project-blog.html" class="btn">Project Blog</a>
+          </div>
           <h2 class="card-title">Project 3</h2>
           <p class="card-desc">Description for Project 3.</p>
-          <button>Button</button>
         </div>
 
         <div class="card">
-          <img src="project4.jpg" alt="Project 4" class="card-img">
+          <img src="https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png" alt="Project 4" class="card-img">
+          <div class="button-row">
+              <a href="project-blog.html">Project Blog</a>
+          </div>
           <h2 class="card-title">Project 4</h2>
           <p class="card-desc">Description for Project 4.</p>
-          <button>Button</button>
         </div>
       </div>
+    </div> -->
+  </section> 
+
+
+  <!-- Experience-->
+<section class="after-files">
+  <div class="portrait">
+    <img src="Portfolio Picture.jpg" alt="Portrait" class="portrait-img">
+  </div>
+
+  <p class="loot-box-caption">Inside this box are the apps and tools I have experience with.</p>
+
+  <div class="click-prompt" id="clickPrompt">
+    <span class="click-ring"></span>
+    <span class="click-ring click-ring-2"></span>
+    <span class="click-icon">🖱️</span>
+  </div>
+
+<div class="loot-box-container">
+  <!-- Loot animation-->
+  <model-viewer
+  src="cardboard_box.glb"
+  class="loot-box"
+  camera-controls="false"
+  disable-zoom
+  disable-pan
+  interaction-prompt="none"
+  auto-rotate>
+</model-viewer>
+
+<div class="loot-tooltip">
+  <img src="Blender modeling idead.jpeg" class="loot-item">
+  <span>Blender • 2024–Present</span>
+</div>
+
+<div class="loot-tooltip">
+  <img src="Multimedia Android _Visual System _Sign In Boihasbullah 9.jpeg" class="loot-item">
+  <span>Figma • 2023–Present</span>
+</div>
+
+<div class="loot-tooltip">
+  <img src="download.jpeg" class="loot-item">
+  <span>Photoshop • 2022–Present</span>
+</div>
+
+<div class="loot-tooltip">
+  <img src="project4.png" class="loot-item">
+  <span>VS Code • 2022–Present</span>
+</div>
+
+</div>
+
+  <div class="name2">
+    <h1>AKOSUA</h1>
+  </div>  
+</section>
+
+<!-- TIMELINE -->
+<section class="timeline-scroll-section">
+
+  <h2 class="timeline-title">Timeline</h2>
+
+  <div class="timeline-pin">
+    <div class="timeline-slider" id="timelineSlider">
+
+      <div class="slide">
+        <img src="Personal Portfolio.png">
+        <div class="timeline-year">2026</div>
+        <h3>Portfolio Completed</h3>
+      </div>
+
+      <div class="slide">
+        <img src="images/portfolio.jpg">
+        <div class="timeline-year">2024</div>
+        <h3>First Portfolio</h3>
+      </div>
+
+      <div class="slide">
+        <img src="https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png">
+        <div class="timeline-year">2022</div>
+        <h3>Started Coding</h3>
+      </div>
+
     </div>
-  </section>
+  </div>
+
+</section>
+
+<section class="view-timeline-section">
+  <a href="timeline.html" class="view-timeline-btn">View Full Timeline</a>
+</section>
 
 
-  <!-- NEXT SECTION -->
-  <section class="after-files">
-    <h2>Next Section</h2>
-  </section>
+<!--Media section links part-->
+<section class="media-section">
 
-  <script src="script.js"></script>
+  <!-- Left column -->
+  <div class="video-strip">
+
+    <a href="https://youtu.be/pJKd_0zaQMc?si=HS7aMr9euPNEwGoD" class="video-box">
+      <img src="thumb1.jpg" alt="">
+    </a>
+
+    <a href="https://youtube.com" class="video-box">
+      <img src="thumb2.jpg" alt="">
+    </a>
+
+    <a href="https://youtube.com" class="video-box">
+      <img src="thumb3.jpg" alt="">
+    </a>
+
+    <a href="https://youtube.com" class="video-box">
+      <img src="thumb4.jpg" alt="">
+    </a>
+
+  </div>
+
+  <!-- Featured article -->
+  <a href="https://substack.com" class="article-card">
+    <h2>Latest Article</h2>
+    <p>Read my thoughts on design, code and storytelling.</p>
+  </a>
+
+  <!-- Youtube channel -->
+  <a href="https://www.youtube.com/@akosuasmonologue" class="channel-card">
+
+    <img
+      src="pfp.jpg"
+      class="channel-pfp"
+      alt=""
+    >
+
+    <div>
+      <h2>Akosua</h2>
+      <p>Creative coding & digital projects</p>
+    </div>
+
+  </a>
+
+  <!-- Stickers -->
+  <img src="sticker1.png" class="sticker sticker1">
+  <img src="sticker2.png" class="sticker sticker2">
+
+</section>
+
+<!--Rotary Phone Section-->
+<section class="phone-scroll-section">
+  <div class="phone-sticky">
+    <canvas id="retrophone"></canvas>
+  </div>
+</section>
+<script src="script.js"></script>
+
+<audio id="dialTone" src="dial.mp3"></audio>
 </body>
 </html>

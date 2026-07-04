@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Project Blog Post</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #fffdf6; /* off-white/cream */
+      --accent: #e2d4e0; /* light dusty pink */
+      --text: #2d2d2d;
+      --shadow: rgba(0, 0, 0, 0.05);
+      --muted-purple: #7c7e9d;
+      --light-grey-blue: #949ab1;
+    }
+
+    * {
+      box-sizing: border-box;
+      font-family: 'DM Sans', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      padding: 2rem;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 20px;
+      box-shadow: 0 8px 16px var(--shadow);
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      color: var(--muted-purple);
+    }
+
+    .date {
+      font-size: 0.9rem;
+      color: #999;
+      margin-bottom: 1rem;
+    }
+
+    .cover-img {
+      width: 100%;
+      height: 10px; /* fixed banner height */
+      object-fit: cover;
+      border-radius: 15px;
+      margin: 1.5rem 0;
+    }
+
+    .video-container {
+      position: relative;
+      padding-bottom: 56.25%; /* 16:9 ratio */
+      height: 0;
+      overflow: hidden;
+      border-radius: 15px;
+      margin-bottom: 1.5rem;
+    }
+
+    .video-container iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+      border-radius: 15px;
+    }
+
+    .content {
+      font-size: 1rem;
+      line-height: 1.8;
+      margin-bottom: 2rem;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .tag {
+      background: var(--muted-purple);
+      color: white;
+      padding: 0.4rem 0.8rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+    }
+
+    .back-btn {
+      display: inline-block;
+      margin-top: 2rem;
+      text-decoration: none;
+      background: var(--muted-purple);
+      color: white;
+      padding: 0.6rem 1.2rem;
+      border-radius: 12px;
+      transition: background 0.2s;
+    }
+
+    .back-btn:hover {
+      background: var(--light-grey-blue);
+    }
+
+    .post-nav {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .nav-link {
+      text-decoration: none;
+      color: var(--muted-purple);
+      font-weight: bold;
+      background: rgba(124, 126, 157, 0.1);
+      padding: 0.5rem 1rem;
+      border-radius: 10px;
+      transition: background 0.2s ease;
+    }
+
+    .nav-link:hover {
+      background: rgba(124, 126, 157, 0.2);
+    }
+
+    /* Arrow Animation */
+    .arrow-container {
+      text-align: center;
+      margin-top: 30px;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .arrow {
+      width: 0;
+      height: 0;
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+      border-bottom: 20px solid var(--muted-purple);
+      margin: 20px auto;
+      transition: transform 0.5s ease;
+    }
+
+    .arrow-container.clicked .arrow {
+      transform: rotate(90deg); /* point right */
+    }
+
+    .extra-info {
+      display: none;
+      margin-top: 20px;
+      font-size: 1rem;
+      color: #333;
+      text-align: left;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .arrow-container.clicked .extra-info {
+      display: block;
+    }
+
+    /* Links Section */
+    .links {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
+
+    .links a {
+      text-decoration: none;
+      color: white;
+      background-color: var(--muted-purple);
+      padding: 0.5rem 1rem;
+      border-radius: 9999px;
+      transition: background-color 0.3s ease;
+      font-size: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .links a:hover {
+      background-color: var(--light-grey-blue);
+    }
+
+    .links i {
+      font-size: 1.5rem;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Revital - Mitsubishi HeatPump Competition 2025</h1>
+    <div class="date">DOB - Wednesday, 2nd April 2025</div>
+    <a href="Projects.html" class="back-btn">Projects</a>
+           <img src="banner1.jpeg" alt="Project Cover" class="cover-img" />
+
+
+    <section id="links" class="section-content">
+      <div class="links">
+        <a href="https://www.notion.so/anoh-books/Passion-Project-4-Revital-1c9c439ee281802097e3ccfc93d9b2d4?pvs=4" target="_blank" rel="noopener noreferrer">
+          <i class="fab fa-notion"></i> Notion
+        </a>
+      </div>
+    </section>
+
+    <img src="banner1.jpeg" alt="Project Cover" class="cover-img" />
+
+    <div class="video-container">
+      <iframe src="https://www.youtube.com/embed/pJKd_0zaQMc?si=nEYwgVOWOlPMRrBb" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+
+    <div class="content">
+      <p>Revital is a project that aims to transform the organ transportation industry in medicine and healthcare. It relies on the use of a heat pump to mimic the environment of the human body - Thermoregulation. This is essential for the preservation of organs as most organs only have a specific time frame in which they can be used in surgery.</p>
+
+      <p>This product attempts to break molds by mimicking the human body instead of the traditional method of using ice coolers to transport organs. This system allows temperature regulation via the heat pump, perfusing the needed nutrients, blood, and oxygen throughout the organ to mimic its optimum condition, enzyme and chemical regulation, sensors, and highly sensitive control systems to monitor the condition and vitals of the organ.</p>
+
+      <p>This system is highly efficient not only in terms of functionality but also in aesthetics. The system has a sleek and modern design which only serves its purpose as it is also meant to be adaptable to all different climates and settings. With a balancing ability, the machine is able to withstand aggression but towards it, as the machine contains non-Newtonian and/or viscoelastic fluids to help keep the organ in a stable condition.</p>
+
+      <p>Uses of the system include but are not limited to:</p>
+
+      <div class="arrow-container" onclick="toggleInfo()">
+        <div class="arrow"></div>
+        <ul class="extra-info">
+          <li>Organ transportation</li>
+          <li>Regular usage in hospitals</li>
+          <li>Intense medical scenarios</li>
+          <li>War victims (transport for immediate trauma surgery)</li>
+          <li>Delivery to remote or low-resource areas</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tags">
+      <div class="tag">#medicine</div>
+      <div class="tag">#organtransportation</div>
+      <div class="tag">#misubishicomp</div>
+      <div class="tag">#revital</div>
+    </div>
+
+    <a href="index.html" class="back-btn">← Back to Home</a>
+
+    <div class="post-nav">
+      <a href="Portfolio_P3.html" class="nav-link">← Previous Project</a>
+    </div>
+
+    <img src="banner1.jpeg" alt="Project Cover" class="cover-img" />
+  </div>
+
+  <script>
+    function toggleInfo() {
+      document.querySelector('.arrow-container').classList.toggle('clicked');
+    }
+  </script>
+</body>
+</html>
