@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Akosua — Portfolio</title>
   <link rel="stylesheet" href="style.css" />
-  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
 </head>
 <body>
 
@@ -46,7 +45,7 @@
               <a href="blog1.html" class="btn">Project Blog</a>
           </div>
           <h2 class="card-title">Personal Portfolio</h2>
-          <p class="card-desc">The journey which was the process of making this</p>
+          <p class="card-desc">My personal portfolio aka the website you are currently on</p>
         </div>
 
         <div class="card">
@@ -58,35 +57,50 @@
           <p class="card-desc">A submission for a competition that I truly like.</p>
         </div>
 
-        <!-- <div class="card">
-          <img src="https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png" alt="Project 3" class="card-img">
+         <div class="card">
+          <img src="tangent.png" alt="Project 3" class="card-img">
           <div class="button-row">
-              <a href="project-blog.html" class="btn">Project Blog</a>
+              <a href="blog3.html" class="btn">Project Blog</a>
           </div>
-          <h2 class="card-title">Project 3</h2>
-          <p class="card-desc">Description for Project 3.</p>
+          <h2 class="card-title">Tangent</h2>
+          <p class="card-desc">A website for students, academics a like to track and organise grades, tests etc all in one place</p>
         </div>
 
         <div class="card">
-          <img src="https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png" alt="Project 4" class="card-img">
+          <img src="macropad.png" alt="Project 3" class="card-img">
           <div class="button-row">
-              <a href="project-blog.html">Project Blog</a>
+              <a href="blog4.html" class="btn">Project Blog</a>
           </div>
-          <h2 class="card-title">Project 4</h2>
-          <p class="card-desc">Description for Project 4.</p>
+          <h2 class="card-title">Macropad</h2>
+          <p class="card-desc">A programmable customisable streamdeck</p>
         </div>
+
       </div>
-    </div> -->
+    </div>
   </section> 
 
 
   <!-- Experience-->
 <section class="after-files">
-  <div class="portrait">
-    <img src="Portfolio Picture.jpg" alt="Portrait" class="portrait-img">
-  </div>
+<div class="portrait">
+  <div class="portrait-card">
+    <img
+      id="portraitImage"
+      src="Portfolio Picture.jpg"
+      alt=""
+      class="portrait-preview"
+    >
 
-  <p class="loot-box-caption">Inside this box are the apps and tools I have experience with.</p>
+    <div class="portrait-info">
+      <h3 id="portraitTitle">My Experience</h3>
+      <p id="portraitText">
+        Hover over an item to see details.
+      </p>
+    </div>
+  </div>
+</div>
+
+  <p class="loot-box-caption">Double click!</p>
 
   <div class="click-prompt" id="clickPrompt">
     <span class="click-ring"></span>
@@ -96,34 +110,47 @@
 
 <div class="loot-box-container">
   <!-- Loot animation-->
-  <model-viewer
-  src="cardboard_box.glb"
-  class="loot-box"
-  camera-controls="false"
-  disable-zoom
-  disable-pan
-  interaction-prompt="none"
-  auto-rotate>
-</model-viewer>
+  <canvas id="skin_container" class="loot-box"></canvas>
+</a>
 
 <div class="loot-tooltip">
-  <img src="Blender modeling idead.jpeg" class="loot-item">
-  <span>Blender • 2024–Present</span>
+  <img src="blender.png" class="loot-item">
+  <span>Blender • 2025–Present</span>
 </div>
 
 <div class="loot-tooltip">
-  <img src="Multimedia Android _Visual System _Sign In Boihasbullah 9.jpeg" class="loot-item">
-  <span>Figma • 2023–Present</span>
+  <img src="vs code.png" class="loot-item">
+  <span>Visual Studio Code • 2021–Present</span>
 </div>
 
 <div class="loot-tooltip">
-  <img src="download.jpeg" class="loot-item">
-  <span>Photoshop • 2022–Present</span>
+  <img src="figma.jpeg" class="loot-item">
+  <span>Figma • 2025–Present</span>
 </div>
 
 <div class="loot-tooltip">
-  <img src="project4.png" class="loot-item">
-  <span>VS Code • 2022–Present</span>
+  <img src="arduino.jpeg" class="loot-item">
+  <span>Arduino • 2022–Present</span>
+</div>
+
+<div class="loot-tooltip">
+  <img src="canva.jpeg" class="loot-item">
+  <span>Canva • 2020–Present</span>
+</div>
+
+<div class="loot-tooltip">
+  <img src="htmlcssjs.jpeg" class="loot-item">
+  <span>Html, css and jss • 2022–Present</span>
+</div>
+
+<div class="loot-tooltip">
+  <img src="unity.jpeg" class="loot-item">
+  <span>Unity • 2022–Present</span>
+</div>
+
+<div class="loot-tooltip">
+  <img src="tinkercad.jpeg" class="loot-item">
+  <span>Tinkercad • 2025–Present</span>
 </div>
 
 </div>
@@ -142,21 +169,23 @@
     <div class="timeline-slider" id="timelineSlider">
 
       <div class="slide">
-        <img src="Personal Portfolio.png">
+        <img src="portfoliov1.png">
         <div class="timeline-year">2026</div>
-        <h3>Portfolio Completed</h3>
+        <h3>Personal Portfolio Published</h3>
+        <p>The original version of the website you are currently reading this from - How times have changed</p>
       </div>
 
       <div class="slide">
-        <img src="images/portfolio.jpg">
-        <div class="timeline-year">2024</div>
-        <h3>First Portfolio</h3>
+        <img src="leftview - revitalmodel.png">
+        <div class="timeline-year">2025</div>
+        <h3>Mitshubishi Competition took place</h3>
+        <p>Long story short I lost the battle but trust I will win the war</p>
       </div>
 
       <div class="slide">
         <img src="https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png">
-        <div class="timeline-year">2022</div>
-        <h3>Started Coding</h3>
+        <div class="timeline-year">2024</div>
+        <h3>An epiphany was reached</h3>
       </div>
 
     </div>
@@ -169,56 +198,79 @@
 </section>
 
 
-<!--Media section links part-->
+<!-- Media section: scattered corkboard of videos, article, and links -->
 <section class="media-section">
+  <div class="corkboard-scatter">
 
-  <!-- Left column -->
-  <div class="video-strip">
+    <div class="board-label">just for the fun of it</div>
 
-    <a href="https://youtu.be/pJKd_0zaQMc?si=HS7aMr9euPNEwGoD" class="video-box">
+    <div class="deco-ribbon" aria-hidden="true">🎀</div>
+    <div class="deco-heart" aria-hidden="true">♥</div>
+    <div class="deco-botanical item-video3-deco" aria-hidden="true">🌿</div>
+    <div class="deco-kiss" aria-hidden="true">xoxo</div>
+
+    <!-- strip → playlist -->
+    <a href="https://open.spotify.com/user/31ct7u6tmt3nvtc5l453dqhebp44?si=4667c8758a0b4486" target="_blank" rel="noopener"
+       class="board-item pinned pin-maroon frame-strip item-strip">
       <img src="thumb1.jpg" alt="">
-    </a>
-
-    <a href="https://youtube.com" class="video-box">
       <img src="thumb2.jpg" alt="">
-    </a>
-
-    <a href="https://youtube.com" class="video-box">
       <img src="thumb3.jpg" alt="">
     </a>
 
-    <a href="https://youtube.com" class="video-box">
-      <img src="thumb4.jpg" alt="">
+    <!-- individual videos -->
+    <a href="https://youtu.be/pJKd_0zaQMc?si=HS7aMr9euPNEwGoD" target="_blank" rel="noopener"
+       class="board-item pinned pin-mustard frame-photo item-video1">
+      <img src="3drotation8transparent1.gif" alt="Video thumbnail">
     </a>
 
-  </div>
+    <a href="https://youtube.com" target="_blank" rel="noopener"
+       class="board-item pinned pin-maroon frame-photo item-video2">
+      <img src="thumb2.jpg" alt="Video thumbnail">
+    </a>
 
-  <!-- Featured article -->
-  <a href="https://substack.com" class="article-card">
-    <h2>Latest Article</h2>
-    <p>Read my thoughts on design, code and storytelling.</p>
-  </a>
+    <a href="https://youtube.com" target="_blank" rel="noopener"
+       class="board-item pinned pin-mustard frame-photo item-video3">
+      <img src="thumb3.jpg" alt="Video thumbnail">
+    </a>
 
-  <!-- Youtube channel -->
-  <a href="https://www.youtube.com/@akosuasmonologue" class="channel-card">
+    <a href="https://youtube.com" target="_blank" rel="noopener"
+       class="board-item pinned pin-maroon frame-photo frame-photo-wide item-video4">
+      <img src="thumb4.jpg" alt="Video thumbnail">
+    </a>
+     
+    <!-- channel -->
+    <a href="https://www.youtube.com/@akosuasmonologue" target="_blank" rel="noopener"
+       class="board-item pinned pin-mustard frame-photo channel-card item-channel">
+      <img src="P" class="channel-pfp" alt="Akosua profile photo">
+      <div>
+        <h2>Akosua</h2>
+        <p>experimentation in life</p>
+      </div>
+    </a>
 
-    <img
-      src="pfp.jpg"
-      class="channel-pfp"
-      alt=""
-    >
+    <!-- substack, styled like a ticket stub -->
+    <a href="https://substack.com/@theycantseemeyall" target="_blank" rel="noopener"
+       class="board-item frame-ticket item-ticket">
+      <span class="ticket-eyebrow">Now Reading</span>
+      <h2>Latest Article</h2>
+      <p>- Journal entries from the back of my mind</p>
+      <span class="read-more">Read on Substack →</span>
+    </a>
 
-    <div>
-      <h2>Akosua</h2>
-      <p>Creative coding & digital projects</p>
+    <!-- misc links -->
+
+    <!-- spotify, now pinned to the board like everything else -->
+    <div class="board-item pinned pin-maroon item-spotify">
+      <div class="music-player">
+        <div class="screen">
+          <img
+            src="https://spotify-github-profile.kittinanx.com/api/view.svg?uid=31ct7u6tmt3nvtc5l453dqhebp44&cover_image=true&theme=compact"
+            alt="Now playing on Spotify"/>
+        </div>
+      </div>
     </div>
 
-  </a>
-
-  <!-- Stickers -->
-  <img src="sticker1.png" class="sticker sticker1">
-  <img src="sticker2.png" class="sticker sticker2">
-
+  </div>
 </section>
 
 <!--Rotary Phone Section-->
@@ -228,6 +280,7 @@
   </div>
 </section>
 <script src="script.js"></script>
+<script type="module" src="skin-loot.js"></script>
 
 <audio id="dialTone" src="dial.mp3"></audio>
 </body>

@@ -551,5 +551,72 @@ window.addEventListener("scroll", () => {
   slider.style.transform = `translateX(${-maxScroll * scrollProgress}px)`;
 });
 
+
+document.querySelectorAll(".loot-tooltip").forEach(item => {
+  const text = item.querySelector("span").textContent;
+
+  item.addEventListener("mouseenter", () => {
+    portraitText.textContent = text;
+  });
+
+  item.addEventListener("mouseleave", () => {
+    portraitText.textContent =
+      "Hover over an item to see details here.";
+  });
+});
+
+const portraitImage = document.getElementById("portraitImage");
+const portraitTitle = document.getElementById("portraitTitle");
+const portraitText = document.getElementById("portraitText");
+
+document.querySelectorAll(".loot-tooltip").forEach(item => {
+  const img = item.querySelector("img");
+  const span = item.querySelector("span");
+
+  item.addEventListener("mouseenter", () => {
+    portraitImage.src = img.src;
+    portraitTitle.textContent =
+      span.dataset.title || span.textContent;
+
+    portraitText.textContent =
+      span.dataset.text || span.textContent;
+  });
+});
+
+document.querySelectorAll(".loot-item").forEach(item => {
+  item.addEventListener("mouseenter", () => {
+    portraitImage.src = item.src;
+
+    const text =
+      item.parentElement.querySelector("span").textContent;
+
+    portraitTitle.textContent = text.split("•")[0];
+    portraitText.textContent = text;
+  });
+});
+
+
+const skinContainer = document.getElementById("skin_container");
+
+if (skinContainer) {
+  skinContainer.addEventListener("mouseenter", () => {
+    portraitImage.src = "Portfolio Picture.jpg"; // your image
+
+    portraitTitle.textContent = "Akosua";
+
+    portraitText.textContent =
+      "Developer, designer and maker. I enjoy web development, 3D design, electronics, game development and creating projects that combine technology and creativity.";
+  });
+
+  skinContainer.addEventListener("mouseleave", () => {
+    portraitImage.src = "Portfolio Picture.jpg";
+
+    portraitTitle.textContent = "My Experience";
+
+    portraitText.textContent =
+      "Hover over an item to see details.";
+  });
+}
+
 });
 // end DOMContentLoaded
