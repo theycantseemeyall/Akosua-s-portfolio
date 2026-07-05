@@ -1,8 +1,8 @@
 const dialTone = document.getElementById("dialTone");
 const DIAL_NUMBER = "074-015-4920-7";
 const DIAL_LINKS = [
-  { label: "Link for 0", url: "https://yoursite.com" },
-  { label: "Link for 7", url: "https://yoursite.com" },
+  { label: "Pinterest", url: "https://pin.it/2UWnl0KZH" },
+  { label: "Github", url: "https://github.com/theycantseemeyall" },
   { label: "Link for 4", url: "https://yoursite.com" },
   { label: "Link for 0", url: "https://yoursite.com" },
   { label: "Link for 1", url: "https://yoursite.com" },
