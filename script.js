@@ -1,17 +1,17 @@
 const dialTone = document.getElementById("dialTone");
 const DIAL_NUMBER = "074-015-4920-7";
 const DIAL_LINKS = [
-  { label: "Pinterest", url: "https://pin.it/2UWnl0KZH" },
-  { label: "Github", url: "https://github.com/theycantseemeyall" },
-  { label: "Link for 4", url: "https://yoursite.com" },
-  { label: "Link for 0", url: "https://yoursite.com" },
-  { label: "Link for 1", url: "https://yoursite.com" },
-  { label: "Link for 5", url: "https://yoursite.com" },
-  { label: "Link for 4", url: "https://yoursite.com" },
-  { label: "Link for 9", url: "https://yoursite.com" },
-  { label: "Link for 2", url: "https://yoursite.com" },
-  { label: "Link for 0", url: "https://yoursite.com" },
-  { label: "Link for 7", url: "https://yoursite.com" },
+  { label: "Pinterest", url: "https://pin.it/2UWnl0KZH" }, // 0
+  { label: "Github", url: "https://github.com/theycantseemeyall" }, // 7
+  { label: "Linkedin", url: "https://www.linkedin.com/in/akosuaofosu-hene/" }, // 4
+  { label: "Link for 0", url: "https://yoursite.com" }, // 0
+  { label: "Substack", url: "https://substack.com/@theycantseemeyall?utm_source=user-menu" }, // 1
+  { label: "Youtube", url: "https://www.youtube.com/@akosuasmonologue" }, // 5
+  { label: "Link for 4", url: "https://yoursite.com" }, // 4
+  { label: "Email", url: "" }, // 9
+  { label: "Link for 2", url: "https://yoursite.com" }, // 2
+  { label: "Link for 0", url: "https://yoursite.com" }, // 0
+  { label: "Link for 7", url: "https://yoursite.com" }, // 7
 ];
 
 document.addEventListener("DOMContentLoaded", () => {
