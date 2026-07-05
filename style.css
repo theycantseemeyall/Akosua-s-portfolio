@@ -979,7 +979,7 @@ button:active {
 
 .channel-pfp {
   width: 56px;
-  height: 56px;
+  height: 150px;
   border-radius: 50%;
   object-fit: cover;
   border: 3px solid #fdfbf5;
