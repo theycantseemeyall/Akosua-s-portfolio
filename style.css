@@ -885,6 +885,17 @@ button:active {
 .frame-ticket h2{ font-family: 'Kalam', cursive; font-weight: 700; line-height: 1.15; margin: .4rem 0; }
 .read-more{ font-size: .8rem; text-decoration: underline; }
 
+/* reset link defaults so board-item anchors don't look like browser links */
+a.board-item {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ticket needs extra headroom when it's also pinned */
+.frame-ticket.pinned {
+  padding-top: 40px;
+}
+
 /* channel card */
 .channel-card{
   flex-direction: row;
