@@ -863,6 +863,111 @@ button:active {
 .frame-strip img{ aspect-ratio: 4/3; border: 3px solid #000; }
 
 /* ticket stub */
+
+.frame-ticket.dino-style {
+  background: #f7f7f7;
+  border: none;
+  border-radius: 0;
+  padding: 24px 20px;
+  overflow: hidden;
+  font-family: 'Courier New', monospace;
+  color: #535353;
+  image-rendering: pixelated;
+}
+
+/* the dotted horizon line, just like the game */
+.frame-ticket.dino-style::before {
+  content: "";
+  position: absolute;
+  left: 20px; right: 20px;
+  bottom: 54px;
+  height: 2px;
+  background: repeating-linear-gradient(
+    90deg,
+    #535353 0px, #535353 6px,
+    transparent 6px, transparent 12px
+  );
+  z-index: 1;
+}
+
+/* pixel-art dino, drawn in pure CSS box-shadow pixels */
+.frame-ticket.dino-style::after {
+  content: "";
+  position: absolute;
+  left: 24px;
+  bottom: 58px;
+  width: 22px;
+  height: 22px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 22 22' shape-rendering='crispEdges'%3E%3Cg fill='%23535353'%3E%3Crect x='8' y='2' width='8' height='2'/%3E%3Crect x='8' y='4' width='10' height='2'/%3E%3Crect x='6' y='6' width='12' height='2'/%3E%3Crect x='6' y='8' width='12' height='2'/%3E%3Crect x='4' y='10' width='14' height='2'/%3E%3Crect x='4' y='12' width='12' height='2'/%3E%3Crect x='4' y='14' width='10' height='2'/%3E%3Crect x='6' y='16' width='4' height='2'/%3E%3Crect x='12' y='16' width='4' height='2'/%3E%3Crect x='6' y='18' width='4' height='2'/%3E%3Crect x='12' y='18' width='4' height='2'/%3E%3Crect x='14' y='6' width='2' height='2' fill='%23f7f7f7'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: contain;
+  z-index: 2;
+  animation: dino-hop 0.6s steps(2) infinite;
+}
+
+@keyframes dino-hop {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+/* little pixel cactus for flavor */
+.frame-ticket.dino-style .ticket-eyebrow {
+  position: relative;
+  z-index: 2;
+  font-family: 'Courier New', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #535353;
+  opacity: 0.85;
+}
+
+.frame-ticket.dino-style h2 {
+  position: relative;
+  z-index: 2;
+  font-family: 'Courier New', monospace;
+  font-weight: 700;
+  color: #535353;
+  margin: 10px 0 8px;
+  letter-spacing: 0.02em;
+}
+
+.frame-ticket.dino-style p {
+  position: relative;
+  z-index: 2;
+  color: #767676;
+  font-size: 0.85rem;
+}
+
+.frame-ticket.dino-style .read-more {
+  position: relative;
+  z-index: 2;
+  display: inline-block;
+  margin-top: 70px;
+  font-family: 'Courier New', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #535353;
+  text-decoration: none;
+  border-bottom: 2px dotted #535353;
+  padding-bottom: 2px;
+}
+
+.frame-ticket.dino-style .read-more:hover {
+  color: #000;
+  border-bottom-color: #000;
+}
+
+/* optional: "G A M E   O V E R" flicker on hover, just for fun */
+.frame-ticket.dino-style:hover::before {
+  animation: dino-blink 0.3s steps(1) 2;
+}
+
+@keyframes dino-blink {
+  50% { opacity: 0; }
+}
+
 .frame-ticket{
   background: var(--paper-cream);
   color: var(--ink);
