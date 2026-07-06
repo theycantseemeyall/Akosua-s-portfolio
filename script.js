@@ -210,21 +210,20 @@ el.addEventListener("mouseleave", () => {
     r1: 0.20,
     r3: 0.03,
 
-    drawCable: function() {
+drawCable: function() {
   const cx = RPH.W / 2;
-  const bodyBottom = RPH.H * 0.15 + RPH.H * 0.70;  // bottom of body
-  const cableX = cx - RPH.W * 0.08;  // slightly left of centre
+  const bodyBottom = RPH.H * 0.15 + RPH.H * 0.60;  // now matches drawBody's y + h
+  const cableX = cx - RPH.W * 0.08;
 
   RPH.ctx.strokeStyle = "#1a0606";
   RPH.ctx.lineWidth = RPH.minWH / 60;
   RPH.ctx.lineCap = "round";
   RPH.ctx.lineJoin = "round";
 
-  // Coiled cable hanging from bottom of phone
   const coils = 10;
   const coilWidth = RPH.minWH * 0.06;
   const coilHeight = RPH.minWH * 0.04;
-  const startY = bodyBottom + RPH.minWH * 0.02;
+  const startY = bodyBottom;   // start exactly at the body's real edge, no extra offset
 
   RPH.ctx.beginPath();
   RPH.ctx.moveTo(cableX, startY);

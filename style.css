@@ -875,7 +875,7 @@ button:active {
   image-rendering: pixelated;
 }
 
-/* the dotted horizon line, just like the game */
+/* dotted horizon line */
 .frame-ticket.dino-style::before {
   content: "";
   position: absolute;
@@ -890,27 +890,23 @@ button:active {
   z-index: 1;
 }
 
-/* pixel-art dino, drawn in pure CSS box-shadow pixels */
-.frame-ticket.dino-style::after {
-  content: "";
-  position: absolute;
-  left: 24px;
-  bottom: 58px;
-  width: 22px;
-  height: 22px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 22 22' shape-rendering='crispEdges'%3E%3Cg fill='%23535353'%3E%3Crect x='8' y='2' width='8' height='2'/%3E%3Crect x='8' y='4' width='10' height='2'/%3E%3Crect x='6' y='6' width='12' height='2'/%3E%3Crect x='6' y='8' width='12' height='2'/%3E%3Crect x='4' y='10' width='14' height='2'/%3E%3Crect x='4' y='12' width='12' height='2'/%3E%3Crect x='4' y='14' width='10' height='2'/%3E%3Crect x='6' y='16' width='4' height='2'/%3E%3Crect x='12' y='16' width='4' height='2'/%3E%3Crect x='6' y='18' width='4' height='2'/%3E%3Crect x='12' y='18' width='4' height='2'/%3E%3Crect x='14' y='6' width='2' height='2' fill='%23f7f7f7'/%3E%3C/g%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-size: contain;
+/* pixel dino, gentle float like the minecraft character */
+.frame-ticket.dino-style .ticket-banner {
+  position: relative;
   z-index: 2;
-  animation: dino-hop 0.6s steps(2) infinite;
+  width: 100%;
+  max-width: 460px;
+  height: 180px;
+  object-fit: contain;
+  display: block;
+  margin: -100px 0 0;  /* top right/left bottom */
+  background: #f7f7f7;
 }
-
-@keyframes dino-hop {
+@keyframes dino-float {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-6px); }
+  50% { transform: translateY(-8px); }
 }
 
-/* little pixel cactus for flavor */
 .frame-ticket.dino-style .ticket-eyebrow {
   position: relative;
   z-index: 2;
@@ -957,15 +953,6 @@ button:active {
 .frame-ticket.dino-style .read-more:hover {
   color: #000;
   border-bottom-color: #000;
-}
-
-/* optional: "G A M E   O V E R" flicker on hover, just for fun */
-.frame-ticket.dino-style:hover::before {
-  animation: dino-blink 0.3s steps(1) 2;
-}
-
-@keyframes dino-blink {
-  50% { opacity: 0; }
 }
 
 .frame-ticket{
