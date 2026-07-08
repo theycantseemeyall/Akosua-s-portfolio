@@ -1,3 +1,7 @@
+const dialTone = document.getElementById("dialTone");
+const ringTone = document.getElementById("ringTone");
+let hasRung = false;
+
 const DIAL_NUMBER = "074-015-4920-7";
 const DIAL_LINKS = [
   { label: "Pinterest", url: "https://pin.it/2UWnl0KZH" }, // 0
@@ -448,17 +452,35 @@ window.addEventListener("scroll", function() {
 
     if (newLitCount > RPH.lastLitIndex + 1) {
       for (var i = RPH.lastLitIndex + 1; i < newLitCount; i++) {
-        if (DIAL_LINKS[i]) RPH.showPopup(DIAL_LINKS[i]);
-         if (dialTone) {
-    dialTone.currentTime = 0;
-    dialTone.play();
-  }
-
-  if (DIAL_LINKS[i]) {
-    RPH.showPopup(DIAL_LINKS[i]);
-  }
+        if (dialTone) {
+          dialTone.currentTime = 0;
+          dialTone.play();
+        }
+        if (DIAL_LINKS[i]) {
+          RPH.showPopup(DIAL_LINKS[i]);
+        }
       }
     }
+
+    // --- RING WHEN FULLY DIALED ---
+    if (newLitCount === RAW_DIGITS.length && !hasRung) {
+      hasRung = true;
+      if (dialTone) dialTone.pause();
+      if (ringTone) {
+        ringTone.currentTime = 0;
+        ringTone.loop = true;
+        ringTone.play().catch(() => {});
+      }
+    }
+
+    if (newLitCount < RAW_DIGITS.length && hasRung) {
+      hasRung = false;
+      if (ringTone) {
+        ringTone.pause();
+        ringTone.currentTime = 0;
+      }
+    }
+    // -------------------------------
 
     RPH.phone.litCount = newLitCount;
     RPH.lastLitIndex = newLitCount - 1;
