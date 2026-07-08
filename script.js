@@ -1,4 +1,3 @@
-const dialTone = document.getElementById("dialTone");
 const DIAL_NUMBER = "074-015-4920-7";
 const DIAL_LINKS = [
   { label: "Pinterest", url: "https://pin.it/2UWnl0KZH" }, // 0
