@@ -1,7 +1,3 @@
-const dialTone = document.getElementById("dialTone");
-const ringTone = document.getElementById("ringTone");
-let hasRung = false;
-
 const DIAL_NUMBER = "074-015-4920-7";
 const DIAL_LINKS = [
   { label: "Pinterest", url: "https://pin.it/2UWnl0KZH" }, // 0
@@ -18,6 +14,20 @@ const DIAL_LINKS = [
 ];
 
 document.addEventListener("DOMContentLoaded", () => {
+
+const dialTone = document.getElementById("dialTone");
+const ringTone = document.getElementById("ringTone");
+let hasRung = false;
+
+document.addEventListener("click", function unlockAudio() {
+  [dialTone, ringTone].forEach(a => {
+    if (a) {
+      a.play().then(() => a.pause()).catch(() => {});
+      a.currentTime = 0;
+    }
+  });
+  document.removeEventListener("click", unlockAudio);
+}, { once: true });
 
   /* SCROLLING FILES / CARDS */
   const cards = document.querySelectorAll(".card");
