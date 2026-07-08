@@ -212,7 +212,7 @@ el.addEventListener("mouseleave", () => {
 
 drawCable: function() {
   const cx = RPH.W / 2;
-  const bodyBottom = RPH.H * 0.15 + RPH.H * 0.60;  // now matches drawBody's y + h
+  const bodyBottom = RPH.H * 0.15 + RPH.H * 0.60;
   const cableX = cx - RPH.W * 0.08;
 
   RPH.ctx.strokeStyle = "#1a0606";
@@ -223,7 +223,7 @@ drawCable: function() {
   const coils = 10;
   const coilWidth = RPH.minWH * 0.06;
   const coilHeight = RPH.minWH * 0.04;
-  const startY = bodyBottom;   // start exactly at the body's real edge, no extra offset
+  const startY = bodyBottom - RPH.minWH * 0.05;  // starts a bit ABOVE the edge, under the body
 
   RPH.ctx.beginPath();
   RPH.ctx.moveTo(cableX, startY);
@@ -424,9 +424,9 @@ drawBody: function() {
   };
 RPH.draw = function() {
   RPH.pen.clear();
-  RPH.phone.drawBody();
+  RPH.phone.drawCable();     // draw first → sits behind everything
+  RPH.phone.drawBody();      // now painted on top, hides the part that overlaps
   RPH.phone.drawReceiver();
-  RPH.phone.drawCable();   // add this line
   RPH.ctx.textAlign = "center";
   RPH.ctx.textBaseline = "middle";
   RPH.phone.drawRing();
