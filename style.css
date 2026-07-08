@@ -830,6 +830,26 @@ button:active {
 .receipt       { grid-column: span 3;  grid-row: span 12; --rot: 4deg;  }
 .item-spotify  { grid-column: span 4;  grid-row: span 8;  --rot: -2.5deg; }
 
+/* Make Revital pt1 & pt2 wider, matching their real proportions */
+.item-video2,
+.item-video3 {
+  grid-column: span 5;   /* was span 3 — wider footprint on the board */
+  grid-row: span 7;      /* was span 9 — shorter, since it's wide not tall */
+}
+
+.item-video2 img,
+.item-video3 img {
+  aspect-ratio: 16/10;   /* wide ratio instead of the 4/5 portrait one */
+  object-fit: cover;     /* keeps it filling the frame with a crop */
+}
+
+.item-video2 img,
+.item-video3 img {
+  aspect-ratio: 16/10;
+  object-fit: contain;
+  background: #fff;
+}
+
 /* ---------- pins ---------- */
 .pinned{ padding-top: 24px; }
 .pinned::before{
